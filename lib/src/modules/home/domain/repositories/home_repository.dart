@@ -7,8 +7,9 @@ import '../entities/top_rated_movies_result_entity.dart';
 
 abstract class HomeRepository {
   Future<Either<Failure, TopRatedMoviesResultEntity>> listTopRatedMovies(
-      {required int page});
+      {required int page, required String locale});
   Future<Either<Failure, NowPlayingMoviesResultEntity>> listNowPlayingMovies(
-      {required int page});
-  Future<Either<Failure, List<GenreEntity>>> listGenres();
+      {required int page, required String locale});
+  Future<Either<Failure, List<GenreEntity>>> listGenres(
+      {required String locale});
 }

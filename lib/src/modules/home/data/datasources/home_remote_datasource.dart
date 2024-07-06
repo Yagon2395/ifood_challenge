@@ -25,10 +25,10 @@ class HomeRemoteDatasource implements HomeDatasource {
 
   @override
   Future<TopRatedMoviesResponseModel> listTopRatedMovies(
-      {required int page}) async {
+      {required int page, required String locale}) async {
     try {
-      final response =
-          await _client.get('$tmdbBaseUrl/3/movie/top_rated?page=$page');
+      final response = await _client
+          .get('$tmdbBaseUrl/3/movie/top_rated?language=$locale&page=$page');
 
       if (response.statusCode != HttpStatus.ok) {
         throw ServerException(
@@ -48,10 +48,10 @@ class HomeRemoteDatasource implements HomeDatasource {
 
   @override
   Future<NowPlayingMoviesResponseModel> listNowPlayingMovies(
-      {required int page}) async {
+      {required int page, required String locale}) async {
     try {
-      final response =
-          await _client.get('$tmdbBaseUrl/3/movie/now_playing?page=$page');
+      final response = await _client
+          .get('$tmdbBaseUrl/3/movie/now_playing?language=$locale&page=$page');
 
       if (response.statusCode != HttpStatus.ok) {
         throw ServerException(
@@ -70,9 +70,10 @@ class HomeRemoteDatasource implements HomeDatasource {
   }
 
   @override
-  Future<GenresResponseModel> listGenres() async {
+  Future<GenresResponseModel> listGenres({required String locale}) async {
     try {
-      final response = await _client.get('$tmdbBaseUrl/3/genre/movie/list');
+      final response =
+          await _client.get('$tmdbBaseUrl/3/genre/movie/list?language=$locale');
 
       if (response.statusCode != HttpStatus.ok) {
         throw ServerException(

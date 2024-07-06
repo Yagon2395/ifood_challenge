@@ -19,9 +19,12 @@ class HomeRepositoryImpl implements HomeRepository {
 
   @override
   Future<Either<Failure, TopRatedMoviesResultEntity>> listTopRatedMovies(
-      {required int page}) async {
+      {required int page, required String locale}) async {
     try {
-      final response = await _dataSource.listTopRatedMovies(page: page);
+      final response = await _dataSource.listTopRatedMovies(
+        page: page,
+        locale: locale,
+      );
       return Right(TopRatedMoviesResultMapper.toEntity(response));
     } on ServerException catch (e) {
       return Left(ServerFailure(
@@ -35,9 +38,12 @@ class HomeRepositoryImpl implements HomeRepository {
 
   @override
   Future<Either<Failure, NowPlayingMoviesResultEntity>> listNowPlayingMovies(
-      {required int page}) async {
+      {required int page, required String locale}) async {
     try {
-      final response = await _dataSource.listNowPlayingMovies(page: page);
+      final response = await _dataSource.listNowPlayingMovies(
+        page: page,
+        locale: locale,
+      );
       return Right(NowPlayingMoviesResultMapper.toEntity(response));
     } on ServerException catch (e) {
       return Left(ServerFailure(
@@ -50,9 +56,10 @@ class HomeRepositoryImpl implements HomeRepository {
   }
 
   @override
-  Future<Either<Failure, List<GenreEntity>>> listGenres() async {
+  Future<Either<Failure, List<GenreEntity>>> listGenres(
+      {required String locale}) async {
     try {
-      final response = await _dataSource.listGenres();
+      final response = await _dataSource.listGenres(locale: locale);
       return Right(
           response.genres.map((e) => GenreMapper.toEntity(e)).toList());
     } on ServerException catch (e) {

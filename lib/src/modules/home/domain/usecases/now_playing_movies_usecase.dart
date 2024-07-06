@@ -6,7 +6,8 @@ import '../entities/now_playing_movies_result_entity.dart';
 import '../repositories/home_repository.dart';
 
 class NowPlayingMoviesUsecase
-    implements InputableUsecase<NowPlayingMoviesResultEntity, int> {
+    implements
+        InputableUsecase<NowPlayingMoviesResultEntity, NowPlayingParams> {
   final HomeRepository _repository;
 
   NowPlayingMoviesUsecase({required HomeRepository repository})
@@ -14,7 +15,15 @@ class NowPlayingMoviesUsecase
 
   @override
   Future<Either<Failure, NowPlayingMoviesResultEntity>> call(
-      {required int params}) async {
-    return await _repository.listNowPlayingMovies(page: params);
+      {required NowPlayingParams params}) async {
+    return await _repository.listNowPlayingMovies(
+        page: params.page, locale: params.locale);
   }
+}
+
+class NowPlayingParams {
+  final int page;
+  final String locale;
+
+  NowPlayingParams({required this.page, required this.locale});
 }

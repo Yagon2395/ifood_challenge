@@ -13,6 +13,7 @@ class HomeState extends Equatable {
   final NowPlayingMoviesResultEntity nowPlayingResult;
   final GenresStatus genresStatus;
   final List<GenreEntity> genres;
+  final String locale;
 
   const HomeState({
     this.topRatedStatus = TopRatedStatus.loading,
@@ -29,6 +30,7 @@ class HomeState extends Equatable {
     ),
     this.genresStatus = GenresStatus.loading,
     this.genres = const [],
+    this.locale = 'en',
   });
 
   factory HomeState.initial() => const HomeState();
@@ -40,6 +42,7 @@ class HomeState extends Equatable {
     nowPlayingResult,
     genresStatus,
     genres,
+    locale,
   }) {
     return HomeState(
       topRatedStatus: topRatedStatus ?? this.topRatedStatus,
@@ -48,6 +51,7 @@ class HomeState extends Equatable {
       nowPlayingResult: nowPlayingResult ?? this.nowPlayingResult,
       genresStatus: genresStatus ?? this.genresStatus,
       genres: genres ?? this.genres,
+      locale: locale ?? this.locale,
     );
   }
 
@@ -59,5 +63,6 @@ class HomeState extends Equatable {
         nowPlayingResult,
         genresStatus,
         genres,
+        locale,
       ];
 }
