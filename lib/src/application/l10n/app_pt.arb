@@ -1,0 +1,9 @@
+{
+    "appTitle": "iFood Challenge App",
+    "bottomNavBarLabelHome": "Início",
+    "bottomNavBarLabelSearch": "Busca",
+    "bottomNavBarLabelBookmarks": "Favoritos",
+    "homeAppBarTitle": "Mais avaliados",
+    "tryAgainMessage": "Ops! Tente novamente...",
+    "topRatedRatingText": "Avaliação: "
+}
