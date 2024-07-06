@@ -6,5 +6,6 @@
     "homeAppBarTitle": "Mais avaliados",
     "tryAgainMessage": "Ops! Tente novamente...",
     "topRatedRatingText": "Avaliação: ",
-    "nowPlayingHeading": "Nos cinemas"
+    "nowPlayingHeading": "Nos cinemas",
+    "emptyMessage": "Nenhum filme encontrado. Tente novamente..."
 }

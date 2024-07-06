@@ -54,7 +54,8 @@ class HomeCubit extends Cubit<HomeState> {
     result.fold((_) {
       emit(state.copyWith(nowPlayingStatus: NowPlayingStatus.error));
     }, (r) {
-      final isEmpty = state.topRatedResult.results.isEmpty && r.results.isEmpty;
+      final isEmpty =
+          state.nowPlayingResult.results.isEmpty && r.results.isEmpty;
       emit(state.copyWith(
         nowPlayingStatus:
             isEmpty ? NowPlayingStatus.empty : NowPlayingStatus.filled,

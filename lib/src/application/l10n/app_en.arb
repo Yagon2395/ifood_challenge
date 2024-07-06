@@ -6,5 +6,6 @@
     "homeAppBarTitle": "Top rated",
     "tryAgainMessage": "Ops! Try again...",
     "topRatedRatingText": "Rating: ",
-    "nowPlayingHeading": "Now playing"
+    "nowPlayingHeading": "Now playing",
+    "emptyMessage": "No movies found. Try again..."
 }
