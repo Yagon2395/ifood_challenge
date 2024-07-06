@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ifood_challenge/src/application/l10n/l10n_extension.dart';
 import 'package:ifood_challenge/src/modules/core/presentation/themes/ifood_challenge_theme_extension.dart';
+import 'package:ifood_challenge/src/modules/core/presentation/utils/decimal_precision_extension.dart';
 
 import '../../../../../core/presentation/tokens/ifood_challenge_border_size.dart';
 import '../../../../../core/presentation/tokens/ifood_challenge_spacing.dart';
@@ -74,9 +75,15 @@ class _MovieItem extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
                 horizontal: IFoodChallengeSpacing.xxxs),
             child: Text.rich(
-              TextSpan(
-                  text: context.l10n.topRatedRatingText,
-                  children: [TextSpan(text: '${movie.voteAverage}')]),
+              TextSpan(text: context.l10n.topRatedRatingText, children: [
+                TextSpan(
+                  text: '${movie.voteAverage.toPrecision(1)}',
+                  style: context.theme.subTitle.copyWith(
+                    color: context.theme.primary,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ]),
               style: context.theme.subTitle,
             ),
           ),

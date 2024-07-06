@@ -5,5 +5,6 @@
     "bottomNavBarLabelBookmarks": "Bookmarks",
     "homeAppBarTitle": "Top rated",
     "tryAgainMessage": "Ops! Try again...",
-    "topRatedRatingText": "Rating: "
+    "topRatedRatingText": "Rating: ",
+    "nowPlayingHeading": "Now playing"
 }

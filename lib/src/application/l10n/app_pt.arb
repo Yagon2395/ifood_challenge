@@ -5,5 +5,6 @@
     "bottomNavBarLabelBookmarks": "Favoritos",
     "homeAppBarTitle": "Mais avaliados",
     "tryAgainMessage": "Ops! Tente novamente...",
-    "topRatedRatingText": "Avaliação: "
+    "topRatedRatingText": "Avaliação: ",
+    "nowPlayingHeading": "Nos cinemas"
 }

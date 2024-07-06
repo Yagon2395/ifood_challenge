@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ifood_challenge/src/application/l10n/l10n_extension.dart';
 import 'package:ifood_challenge/src/modules/core/presentation/themes/ifood_challenge_theme_extension.dart';
-import 'package:ifood_challenge/src/modules/home/presentation/home/widgets/top_rated/top_rated_movies_content.dart';
 
 import '../../../../core/presentation/tokens/ifood_challenge_spacing.dart';
+import 'now_playing/now_playing_movies_sliver_content.dart';
+import 'top_rated/top_rated_movies_content.dart';
 
 class HomeContent extends StatelessWidget {
   const HomeContent({super.key});
@@ -33,6 +34,23 @@ class HomeContent extends StatelessWidget {
           const SliverToBoxAdapter(
             child: TopRatedMoviesContent(),
           ),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: IFoodChallengeSpacing.xs,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Text(
+              context.l10n.nowPlayingHeading,
+              style: context.theme.heading,
+            ),
+          ),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: IFoodChallengeSpacing.xs,
+            ),
+          ),
+          const NowPlayingMoviesSliverContent(),
         ],
       ),
     );
