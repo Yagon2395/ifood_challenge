@@ -8,6 +8,7 @@ abstract class TopRatedMoviesResultMapper {
     return TopRatedMoviesResultEntity(
       page: model.page,
       totalPages: model.totalPages,
+      totalResults: model.totalResults,
       results:
           model.results.map((e) => TopRatedMovieMapper.toEntity(e)).toList(),
     );

@@ -20,12 +20,14 @@ class HomeState extends Equatable {
     this.topRatedResult = const TopRatedMoviesResultEntity(
       page: 0,
       totalPages: 0,
+      totalResults: 0,
       results: [],
     ),
     this.nowPlayingStatus = NowPlayingStatus.loading,
     this.nowPlayingResult = const NowPlayingMoviesResultEntity(
       page: 0,
       totalPages: 0,
+      totalResults: 0,
       results: [],
     ),
     this.genresStatus = GenresStatus.loading,

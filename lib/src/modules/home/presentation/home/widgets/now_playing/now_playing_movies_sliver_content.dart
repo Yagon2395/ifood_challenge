@@ -15,9 +15,11 @@ class NowPlayingMoviesSliverContent extends StatelessWidget {
     return BlocBuilder<HomeCubit, HomeState>(
       buildWhen: (p, c) =>
           p.nowPlayingStatus != c.nowPlayingStatus ||
-          (p.genresStatus != c.genresStatus),
+          (p.genresStatus != c.genresStatus) ||
+          (p.nowPlayingResult != c.nowPlayingResult),
       builder: (context, state) {
-        if (state.nowPlayingStatus == NowPlayingStatus.loading) {
+        if (state.nowPlayingStatus == NowPlayingStatus.loading &&
+            state.nowPlayingResult.results.isEmpty) {
           return const NowPlayingMoviesSkeletonSliver();
         }
 

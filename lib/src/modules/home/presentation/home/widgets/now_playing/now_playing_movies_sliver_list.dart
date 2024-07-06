@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ifood_challenge/src/application/l10n/l10n_extension.dart';
 import 'package:ifood_challenge/src/modules/core/presentation/themes/ifood_challenge_theme_extension.dart';
 import 'package:ifood_challenge/src/modules/core/presentation/utils/decimal_precision_extension.dart';
@@ -28,6 +29,9 @@ class NowPlayingMoviesSliverList extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         childCount: movies.length,
         (BuildContext context, int index) {
+          if (movies.length - 5 == index) {
+            BlocProvider.of<HomeCubit>(context).fetchNowPlayingMovies();
+          }
           final item = movies[index];
           return _Movie(item, genres, genresStatus);
         },

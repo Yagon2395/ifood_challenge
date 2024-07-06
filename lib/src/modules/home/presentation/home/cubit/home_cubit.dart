@@ -66,7 +66,8 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future fetchNowPlayingMovies() async {
     emit(state.copyWith(nowPlayingStatus: NowPlayingStatus.loading));
-    final nextPage = state.topRatedResult.page + 1;
+
+    final nextPage = state.nowPlayingResult.page + 1;
     final result = await _nowPlayingMoviesUsecase(
         params: NowPlayingParams(
       page: nextPage,
@@ -77,10 +78,11 @@ class HomeCubit extends Cubit<HomeState> {
     }, (r) {
       final isEmpty =
           state.nowPlayingResult.results.isEmpty && r.results.isEmpty;
+      final movies = [...state.nowPlayingResult.results, ...r.results];
       emit(state.copyWith(
         nowPlayingStatus:
             isEmpty ? NowPlayingStatus.empty : NowPlayingStatus.filled,
-        nowPlayingResult: r,
+        nowPlayingResult: r.copyWith(results: movies),
       ));
     });
   }

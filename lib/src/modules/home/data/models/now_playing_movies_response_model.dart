@@ -5,18 +5,21 @@ import 'now_playing_movie_model.dart';
 class NowPlayingMoviesResponseModel {
   final int page;
   final int totalPages;
+  final int totalResults;
   final List<NowPlayingMovieModel> results;
 
   NowPlayingMoviesResponseModel({
     required this.page,
     required this.totalPages,
+    required this.totalResults,
     required this.results,
   });
 
   Map<String, dynamic> toMap() {
     return {
       'page': page,
-      'totalPages': totalPages,
+      'total_pages': totalPages,
+      'total_results': totalPages,
       'results': results.map((e) => e.toMap()).toList(),
     };
   }
@@ -25,6 +28,7 @@ class NowPlayingMoviesResponseModel {
     return NowPlayingMoviesResponseModel(
       page: map['page'],
       totalPages: map['total_pages'],
+      totalResults: map['total_results'],
       results: map['results'] != null
           ? (map['results'] as List<dynamic>)
               .map((e) =>

@@ -8,6 +8,7 @@ abstract class NowPlayingMoviesResultMapper {
     return NowPlayingMoviesResultEntity(
       page: model.page,
       totalPages: model.totalPages,
+      totalResults: model.totalResults,
       results:
           model.results.map((e) => NowPlayingMovieMapper.toEntity(e)).toList(),
     );
