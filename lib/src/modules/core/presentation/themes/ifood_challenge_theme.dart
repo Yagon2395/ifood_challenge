@@ -42,6 +42,11 @@ class IFoodChallengeTheme {
       cardTheme: const CardTheme(
         color: IFoodChallengeColors.neutralGray,
       ),
+      textSelectionTheme: const TextSelectionThemeData(
+        cursorColor: IFoodChallengeColors.primary,
+        selectionColor: IFoodChallengeColors.primary,
+        selectionHandleColor: IFoodChallengeColors.primary,
+      ),
       iconTheme: const IconThemeData(color: IFoodChallengeColors.neutralWhite),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: IFoodChallengeColors.neutralBlack,

@@ -22,7 +22,7 @@ class IFoodChallengeTypography {
   );
 
   static const TextStyle label = TextStyle(
-    fontSize: IFoodChallengeFontSize.smallest,
+    fontSize: IFoodChallengeFontSize.xxxs,
   );
 
   static const TextStyle button = TextStyle(

@@ -1,10 +1,10 @@
 part of 'home_cubit.dart';
 
-enum TopRatedStatus { empty, filled, loading, error }
+enum TopRatedStatus { idle, empty, filled, loading, error }
 
-enum NowPlayingStatus { empty, filled, loading, error }
+enum NowPlayingStatus { idle, empty, filled, loading, error }
 
-enum GenresStatus { loading, success, error }
+enum GenresStatus { idle, loading, success, error }
 
 class HomeState extends Equatable {
   final TopRatedStatus topRatedStatus;
@@ -14,25 +14,27 @@ class HomeState extends Equatable {
   final GenresStatus genresStatus;
   final List<GenreEntity> genres;
   final String locale;
+  final bool initialized;
 
   const HomeState({
-    this.topRatedStatus = TopRatedStatus.loading,
+    this.topRatedStatus = TopRatedStatus.idle,
     this.topRatedResult = const TopRatedMoviesResultEntity(
       page: 0,
       totalPages: 0,
       totalResults: 0,
       results: [],
     ),
-    this.nowPlayingStatus = NowPlayingStatus.loading,
+    this.nowPlayingStatus = NowPlayingStatus.idle,
     this.nowPlayingResult = const NowPlayingMoviesResultEntity(
       page: 0,
       totalPages: 0,
       totalResults: 0,
       results: [],
     ),
-    this.genresStatus = GenresStatus.loading,
+    this.genresStatus = GenresStatus.idle,
     this.genres = const [],
     this.locale = 'en',
+    this.initialized = false,
   });
 
   factory HomeState.initial() => const HomeState();
@@ -45,6 +47,7 @@ class HomeState extends Equatable {
     genresStatus,
     genres,
     locale,
+    initialized,
   }) {
     return HomeState(
       topRatedStatus: topRatedStatus ?? this.topRatedStatus,
@@ -54,6 +57,7 @@ class HomeState extends Equatable {
       genresStatus: genresStatus ?? this.genresStatus,
       genres: genres ?? this.genres,
       locale: locale ?? this.locale,
+      initialized: initialized ?? this.initialized,
     );
   }
 
@@ -66,5 +70,6 @@ class HomeState extends Equatable {
         genresStatus,
         genres,
         locale,
+        initialized,
       ];
 }

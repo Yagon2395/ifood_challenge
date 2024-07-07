@@ -7,5 +7,10 @@
     "tryAgainMessage": "Ops! Try again...",
     "topRatedRatingText": "Rating: ",
     "nowPlayingHeading": "Now playing",
-    "emptyMessage": "No movies found. Try again..."
+    "emptyMessage": "No movies found. Try again...",
+    "searchAppBarTitle": "Search",
+    "searchBarLabel": "Keyword",
+    "searchBarHint": "Type something",
+    "searchEmptyMessage": "No movies found. Try something different...",
+    "noImageText": "Image unavailable"
 }

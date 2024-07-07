@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../core/domain/failures/failures.dart';
-import '../../../core/domain/usecases/base_usecase.dart';
+import '../failures/failures.dart';
+import 'base_usecase.dart';
 
 class LocaleUsecase implements InputableUsecase<String, String> {
   @override

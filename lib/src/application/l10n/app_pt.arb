@@ -7,5 +7,10 @@
     "tryAgainMessage": "Ops! Tente novamente...",
     "topRatedRatingText": "Avaliação: ",
     "nowPlayingHeading": "Nos cinemas",
-    "emptyMessage": "Nenhum filme encontrado. Tente novamente..."
+    "emptyMessage": "Nenhum filme encontrado. Tente novamente...",
+    "searchAppBarTitle": "Busca",
+    "searchBarLabel": "Palavra chave",
+    "searchBarHint": "Digite algo",
+    "searchEmptyMessage": "Nenhum filme encontrado. Tente uma busca diferente.",
+    "noImageText": "Imagem indisponível"
 }

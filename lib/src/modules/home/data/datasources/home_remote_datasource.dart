@@ -3,25 +3,18 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 
 import '../../../core/data/datasources/constants.dart';
-import '../../../core/data/datasources/logger_interceptor.dart';
 import '../../../core/data/datasources/server_exception.dart';
-import '../../../core/data/datasources/tmdb_authentication_interceptor.dart';
 import '../models/genres_response_model.dart';
 import '../models/now_playing_movies_response_model.dart';
 import '../models/top_rated_movies_response_model.dart';
 import 'home_datasource.dart';
 
 class HomeRemoteDatasource implements HomeDatasource {
-  late final Dio _client;
+  final Dio _client;
 
-  HomeRemoteDatasource({required Dio client, bool enableInterceptors = true}) {
-    _client = client;
-
-    if (enableInterceptors) {
-      _client.interceptors.add(TMDBAuthenticationInterceptor());
-      _client.interceptors.add(LoggerInterceptor());
-    }
-  }
+  HomeRemoteDatasource({
+    required Dio client,
+  }) : _client = client;
 
   @override
   Future<TopRatedMoviesResponseModel> listTopRatedMovies(

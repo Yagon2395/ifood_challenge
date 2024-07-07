@@ -1,11 +1,11 @@
 import 'package:get_it/get_it.dart';
 
+import '../core/domain/usecases/locale_usecase.dart';
 import 'data/datasources/home_datasource.dart';
 import 'data/datasources/home_remote_datasource.dart';
 import 'data/repositories/home_repository_impl.dart';
 import 'domain/repositories/home_repository.dart';
 import 'domain/usecases/genres_usecase.dart';
-import 'domain/usecases/locale_usecase.dart';
 import 'domain/usecases/now_playing_movies_usecase.dart';
 import 'domain/usecases/top_rated_movies_usecase.dart';
 import 'presentation/home/cubit/home_cubit.dart';
@@ -39,8 +39,8 @@ abstract class HomeModule {
     );
 
     // Blocs and Cubits
-    injector.registerFactory<HomeCubit>(
-      () => HomeCubit(
+    injector.registerSingleton<HomeCubit>(
+      HomeCubit(
         topRatedMoviesUsecase: injector(),
         nowPlayingMoviesUsecase: injector(),
         genresUsecase: injector(),

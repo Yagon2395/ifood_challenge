@@ -33,7 +33,7 @@ class NowPlayingMovieModel {
       id: map['id'],
       title: map['title'],
       voteAverage: map['vote_average'],
-      posterPath: map['poster_path'],
+      posterPath: map['poster_path'] ?? '',
       genreIds: map['genre_ids'] != null
           ? (map['genre_ids'] as List<dynamic>).map((e) => e as int).toList()
           : [],

@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/domain/usecases/locale_usecase.dart';
 import '../../../domain/entities/genre_entity.dart';
 import '../../../domain/entities/now_playing_movies_result_entity.dart';
 import '../../../domain/entities/top_rated_movies_result_entity.dart';
 import '../../../domain/usecases/genres_usecase.dart';
-import '../../../domain/usecases/locale_usecase.dart';
 import '../../../domain/usecases/now_playing_movies_usecase.dart';
 import '../../../domain/usecases/top_rated_movies_usecase.dart';
 
@@ -29,13 +29,17 @@ class HomeCubit extends Cubit<HomeState> {
         super(HomeState.initial());
 
   Future initialize({required String locale}) async {
+    if (state.initialized || isClosed) {
+      return;
+    }
+
     final resultLocale = await _localeUsecase.call(params: locale);
     resultLocale.fold(
-      (_) {
-        emit(state.copyWith(locale: _));
+      (l) {
+        emit(state.copyWith(locale: l, initialized: true));
       },
       (r) {
-        emit(state.copyWith(locale: r));
+        emit(state.copyWith(locale: r, initialized: true));
       },
     );
     await Future.wait([
@@ -65,6 +69,10 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future fetchNowPlayingMovies() async {
+    if (state.nowPlayingStatus == NowPlayingStatus.loading) {
+      return;
+    }
+
     emit(state.copyWith(nowPlayingStatus: NowPlayingStatus.loading));
 
     final nextPage = state.nowPlayingResult.page + 1;
