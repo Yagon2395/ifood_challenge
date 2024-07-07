@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:equatable/equatable.dart';
 
 import '../../../core/domain/failures/failures.dart';
 import '../../../core/domain/usecases/base_usecase.dart';
@@ -21,9 +22,12 @@ class NowPlayingMoviesUsecase
   }
 }
 
-class NowPlayingParams {
+class NowPlayingParams extends Equatable {
   final int page;
   final String locale;
 
-  NowPlayingParams({required this.page, required this.locale});
+  const NowPlayingParams({required this.page, required this.locale});
+
+  @override
+  List<Object?> get props => [page, locale];
 }

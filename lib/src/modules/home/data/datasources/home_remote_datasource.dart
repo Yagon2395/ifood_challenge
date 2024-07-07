@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 
 import '../../../core/data/datasources/constants.dart';
@@ -22,14 +20,6 @@ class HomeRemoteDatasource implements HomeDatasource {
     try {
       final response = await _client
           .get('$tmdbBaseUrl/3/movie/top_rated?language=$locale&page=$page');
-
-      if (response.statusCode != HttpStatus.ok) {
-        throw ServerException(
-          message: response.statusMessage ?? response.toString(),
-          statusCode: response.statusCode,
-        );
-      }
-
       return TopRatedMoviesResponseModel.fromMap(response.data);
     } on DioException catch (e) {
       throw ServerException(
@@ -45,14 +35,6 @@ class HomeRemoteDatasource implements HomeDatasource {
     try {
       final response = await _client
           .get('$tmdbBaseUrl/3/movie/now_playing?language=$locale&page=$page');
-
-      if (response.statusCode != HttpStatus.ok) {
-        throw ServerException(
-          message: response.statusMessage ?? response.toString(),
-          statusCode: response.statusCode,
-        );
-      }
-
       return NowPlayingMoviesResponseModel.fromMap(response.data);
     } on DioException catch (e) {
       throw ServerException(
@@ -67,14 +49,6 @@ class HomeRemoteDatasource implements HomeDatasource {
     try {
       final response =
           await _client.get('$tmdbBaseUrl/3/genre/movie/list?language=$locale');
-
-      if (response.statusCode != HttpStatus.ok) {
-        throw ServerException(
-          message: response.statusMessage ?? response.toString(),
-          statusCode: response.statusCode,
-        );
-      }
-
       return GenresResponseModel.fromMap(response.data);
     } on DioException catch (e) {
       throw ServerException(

@@ -12,5 +12,8 @@
     "searchBarLabel": "Keyword",
     "searchBarHint": "Type something",
     "searchEmptyMessage": "No movies found. Try something different...",
-    "noImageText": "Image unavailable"
+    "noImageText": "Image unavailable",
+    "bookmarksAppBarTitle": "Bookmarks",
+    "comingSoonMessage": "Coming soon",
+    "inConstructionMessage": "This feature is in construction and will be released soon."
 }

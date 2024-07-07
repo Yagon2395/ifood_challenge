@@ -23,6 +23,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  mocktail: ^1.0.4
+  bloc_test: ^9.1.7
+  network_image_mock: ^2.1.1
 
 flutter:
   uses-material-design: true

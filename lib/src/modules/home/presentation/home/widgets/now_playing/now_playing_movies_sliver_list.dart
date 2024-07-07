@@ -108,6 +108,7 @@ class _Movie extends StatelessWidget {
   Widget _buildGenre(BuildContext context) {
     if (genresStatus == GenresStatus.loading) {
       return Skeletonizer(
+        key: const Key('kSkeletonGenre'),
         enabled: true,
         child: Bone.text(
           words: 1,
@@ -118,6 +119,7 @@ class _Movie extends StatelessWidget {
 
     if (genresStatus == GenresStatus.success && genres.isNotEmpty) {
       return Text(
+        key: const Key('kGenreName'),
         _parseGenresToString(),
         style: context.theme.body.copyWith(fontWeight: FontWeight.w600),
       );

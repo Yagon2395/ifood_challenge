@@ -36,7 +36,7 @@ class HomeCubit extends Cubit<HomeState> {
     final resultLocale = await _localeUsecase.call(params: locale);
     resultLocale.fold(
       (l) {
-        emit(state.copyWith(locale: l, initialized: true));
+        emit(state.copyWith(locale: 'en-US', initialized: true));
       },
       (r) {
         emit(state.copyWith(locale: r, initialized: true));

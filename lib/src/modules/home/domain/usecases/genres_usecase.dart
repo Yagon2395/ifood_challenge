@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:equatable/equatable.dart';
 
 import '../../../core/domain/failures/failures.dart';
 import '../../../core/domain/usecases/base_usecase.dart';
@@ -19,8 +20,11 @@ class GenresUsecase
   }
 }
 
-class GenresParams {
+class GenresParams extends Equatable {
   final String locale;
 
-  GenresParams({required this.locale});
+  const GenresParams({required this.locale});
+
+  @override
+  List<Object?> get props => [locale];
 }

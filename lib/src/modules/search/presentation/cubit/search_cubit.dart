@@ -21,7 +21,7 @@ class SearchCubit extends Cubit<SearchState> {
     final resultLocale = await _localeUsecase.call(params: locale);
     resultLocale.fold(
       (_) {
-        emit(state.copyWith(locale: _));
+        emit(state.copyWith(locale: 'en-US'));
       },
       (r) {
         emit(state.copyWith(locale: r));
@@ -30,6 +30,10 @@ class SearchCubit extends Cubit<SearchState> {
   }
 
   Future searchMovies({String keyword = '', bool reset = false}) async {
+    if (isClosed) {
+      return;
+    }
+
     emit(state.copyWith(
       searchMoviesStatus: SearchMoviesStatus.loading,
     ));

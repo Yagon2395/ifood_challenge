@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:equatable/equatable.dart';
 import 'package:ifood_challenge/src/modules/core/domain/failures/failures.dart';
 
 import '../../../core/domain/usecases/base_usecase.dart';
@@ -22,9 +23,12 @@ class TopRatedMoviesUsecase
   }
 }
 
-class TopRatedParams {
+class TopRatedParams extends Equatable {
   final int page;
   final String locale;
 
-  TopRatedParams({required this.page, required this.locale});
+  const TopRatedParams({required this.page, required this.locale});
+
+  @override
+  List<Object?> get props => [page, locale];
 }

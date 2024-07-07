@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 
 import '../../../core/data/datasources/constants.dart';
@@ -22,14 +20,6 @@ class SearchRemoteDatasource implements SearchDatasource {
     try {
       final response = await _client.get(
           '$tmdbBaseUrl/3/search/movie?query=$keyword&language=$locale&page=$page');
-
-      if (response.statusCode != HttpStatus.ok) {
-        throw ServerException(
-          message: response.statusMessage ?? response.toString(),
-          statusCode: response.statusCode,
-        );
-      }
-
       return SearchMoviesResponseModel.fromMap(response.data);
     } on DioException catch (e) {
       throw ServerException(

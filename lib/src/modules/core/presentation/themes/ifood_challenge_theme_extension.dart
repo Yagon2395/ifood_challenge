@@ -27,7 +27,7 @@ class IFoodChallengeThemeExtension
   });
 
   @override
-  ThemeExtension<IFoodChallengeThemeExtension> copyWith({
+  IFoodChallengeThemeExtension copyWith({
     Color? neutralBlack,
     Color? neutralGray,
     Color? neutralWhite,

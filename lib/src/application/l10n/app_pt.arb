@@ -12,5 +12,8 @@
     "searchBarLabel": "Palavra chave",
     "searchBarHint": "Digite algo",
     "searchEmptyMessage": "Nenhum filme encontrado. Tente uma busca diferente.",
-    "noImageText": "Imagem indisponível"
+    "noImageText": "Imagem indisponível",
+    "bookmarksAppBarTitle": "Favoritos",
+    "comingSoonMessage": "Em breve",
+    "inConstructionMessage": "Esta funcionalidade está em construção e será lançadas em breve."
 }

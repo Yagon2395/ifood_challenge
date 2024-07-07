@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:equatable/equatable.dart';
 
 import '../../../core/domain/failures/failures.dart';
 import '../../../core/domain/usecases/base_usecase.dart';
@@ -24,14 +25,17 @@ class SearchMoviesUsecase
   }
 }
 
-class SearchMoviesParams {
+class SearchMoviesParams extends Equatable {
   final int page;
   final String locale;
   final String keyword;
 
-  SearchMoviesParams({
+  const SearchMoviesParams({
     required this.page,
     required this.locale,
     required this.keyword,
   });
+
+  @override
+  List<Object?> get props => [page, locale, keyword];
 }
