@@ -54,16 +54,12 @@ class _Movie extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(IFoodChallengeBorderSize.sm),
             ),
-            child: Image.network(
-              movie.posterUrl,
+            child: FadeInImage.assetNetwork(
+              placeholder: 'assets/no-image.png',
+              image: movie.posterUrl,
               fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return SizedBox(
-                  width: double.infinity,
-                  child: Center(
-                    child: Text(context.l10n.noImageText),
-                  ),
-                );
+              imageErrorBuilder: (context, error, stackTrace) {
+                return Image.asset('assets/no-image.png');
               },
             ),
           ),
