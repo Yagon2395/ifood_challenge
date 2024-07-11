@@ -69,7 +69,9 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future fetchNowPlayingMovies() async {
-    if (state.nowPlayingStatus == NowPlayingStatus.loading) {
+    if (isClosed ||
+        state.nowPlayingStatus == NowPlayingStatus.loading ||
+        state.nowPlayingResult.hasReachedEnd) {
       return;
     }
 

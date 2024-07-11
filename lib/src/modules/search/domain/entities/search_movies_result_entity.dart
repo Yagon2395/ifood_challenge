@@ -8,6 +8,9 @@ class SearchMoviesResultEntity extends Equatable {
   final int totalResults;
   final List<SearchMovieEntity> results;
 
+  bool get hasReachedEnd =>
+      (page > 0 && totalResults > 0 && page == totalPages);
+
   const SearchMoviesResultEntity({
     required this.page,
     required this.totalPages,

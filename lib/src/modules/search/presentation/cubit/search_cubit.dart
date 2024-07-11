@@ -30,7 +30,9 @@ class SearchCubit extends Cubit<SearchState> {
   }
 
   Future searchMovies({String keyword = '', bool reset = false}) async {
-    if (isClosed) {
+    if (isClosed ||
+        state.searchMoviesStatus == SearchMoviesStatus.loading ||
+        (state.searchMoviesResult.hasReachedEnd && keyword.isEmpty)) {
       return;
     }
 

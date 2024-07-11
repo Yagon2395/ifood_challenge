@@ -1,6 +1,6 @@
 part of 'search_cubit.dart';
 
-enum SearchMoviesStatus { empty, filled, loading, error }
+enum SearchMoviesStatus { idle, empty, filled, loading, error }
 
 class SearchState extends Equatable {
   final SearchMoviesStatus searchMoviesStatus;
@@ -9,7 +9,7 @@ class SearchState extends Equatable {
   final String keyword;
 
   const SearchState({
-    this.searchMoviesStatus = SearchMoviesStatus.loading,
+    this.searchMoviesStatus = SearchMoviesStatus.idle,
     this.searchMoviesResult = const SearchMoviesResultEntity(
       page: 0,
       totalPages: 0,

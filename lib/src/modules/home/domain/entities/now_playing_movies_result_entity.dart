@@ -8,6 +8,9 @@ class NowPlayingMoviesResultEntity extends Equatable {
   final int totalResults;
   final List<NowPlayingMovieEntity> results;
 
+  bool get hasReachedEnd =>
+      (page > 0 && totalResults > 0 && page == totalPages);
+
   const NowPlayingMoviesResultEntity({
     required this.page,
     required this.totalPages,
